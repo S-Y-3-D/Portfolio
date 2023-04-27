@@ -1,35 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
-    <section>
-        
-            <p class="scroll" data-rate="1.5">MVPs</p>
-            <section class="projects">
-                <img class="scroll" data-rate="-0.5" src="./soundpai.png">
-                <img class="scroll" data-rate="-0.5" src="./mailsort_landing.png">
-            </section>
-    </section>
-
-    <script>
-        window.addEventListener('scroll',function(e){
-            const target = document.querySelectorAll('.scroll')
-            var index=0, length=target.length;
-            for (index;index<length;index++){
-                var pos = window.pageYOffset*target[index].dataset.rate
-
-                target[index].style.transform = 'translate3d(0px,'+pos+'px,0px)';
-            }
-        })
-
-
-    </script>
-        
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
