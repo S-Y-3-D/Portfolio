@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "chillax-semibold";
+    src: url("./assets/fonts/OTF/Chillax-Semibold.otf");
+}
+
+@font-face {
+    font-family: "chillax-md";
+    src: url("./assets/fonts/OTF/Chillax-Medium.otf");
+}
+
+.scene{
+    position: absolute;
+    border:1px solid;
+}
