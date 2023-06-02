@@ -12,7 +12,26 @@
     src: url("./assets/fonts/OTF/Chillax-Medium.otf");
 }
 
+@font-face {
+    font-family: "chillax-rg";
+    src: url("./assets/fonts/OTF/Chillax-Regular.otf");
+}
+@font-face {
+    font-family: "chillax-li";
+    src: url("./assets/fonts/OTF/Chillax-Light.otf");
+}
+@font-face {
+    font-family: "generalSans-Md";
+    src: url("./assets/fonts/OTF/GeneralSans-Medium.otf");
+}
+@font-face {
+    font-family: "generalSans-Rg";
+    src: url("./assets/fonts/OTF/GeneralSans-Light.otf");
+}
+
 .scene{
     position: absolute;
-    border:1px solid;
+}
+body::-webkit-scrollbar {
+    display: none;
 }
