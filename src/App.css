@@ -103,8 +103,7 @@ background-color: #00AE80; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 
 
 .info-bg{
   
-  background-color: #4F3DFF
- 
+        background-color: #4F3DFF;
 }
 
 .educate-heading{
@@ -136,8 +135,6 @@ background-color: #00AE80; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 
 
 .bg-educate{
   background-color: #FF7C54;
-
-
 }
 
 .parent {

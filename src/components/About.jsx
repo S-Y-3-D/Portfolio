@@ -11,7 +11,7 @@ import skills from '../assets/images/skills.webp';
 import eye from '../assets/images/education.gif';
 import signature from '../assets/images/signature.png';
 import spotify from '../assets/images/spotify.png';
-import heart from '../assets/icons/heart.gif'
+import heart from '../assets/images/heart.gif'
 import {motion} from 'framer-motion';
  
 
@@ -26,7 +26,9 @@ export default function About() {
       <div className='absolute -top-20 m-0'>
 <h1 className={`font-chillaxSemi ${dark ? "border-black" : "border-white"}  ${dark && "text-primary-800"}  project-heading`}>Quick Tour</h1>
 </div>
-<div className="parent gap-4 mt-16">
+<div className='flex items-center justify-center mt-16'>
+
+<div className="parent gap-4 w-11/12 ">
       
 <div className="div1 z-10 flex flex-col items-center justify-center relative place-self-center">
   {/* <img src={eye} className='w-36 rounded-full'/> */}
@@ -60,7 +62,7 @@ export default function About() {
 
   
 </div>
-<div className="div3 z-10 place-self-start">
+<div className="div3 z-10 place-self-center">
 <div>
     <div className='main'>
     <img src={faisal} width="65" height="65"/>
@@ -89,8 +91,12 @@ export default function About() {
       transition={{ type: "spring", stiffness: 400, damping: 10 }} 
   >
     <div>
-    <p className='p-1 mt-1'>Bachelor's in Computer Science (BSCS)</p>
+    <p className='p-1 mt-1'>Bachelor's in Computer Science</p>
     <motion.div className=' flex items-center justify-center '>
+    <motion.div  className='cursor-default rounded-full text-center bg-black text-white py-1 px-4  m-2'>
+    <p className='font-generalSansMd  text-sm'>FAST NUCES</p>
+    <p className='text-xs font-generalSansRg text-gray-300'>Islamabad</p>
+  </motion.div>
     <div className='cursor-default rounded-full text-center bg-white p-3 m-2'>
     <div className='flex items-center'><p className='text-black font-generalSansMd  text-sm'>GPA <span className='text-gray-300'><strong className='text-primary-500 '>  3.05 </strong> / 4</span></p></div>
     </div>
@@ -102,11 +108,11 @@ export default function About() {
   </motion.div> 
 </div>
 <div className='div5 z-10 w-full h-full place-self-center'>
-<motion.div onMouseOver={() => setShowSkills(true)} onMouseLeave={() => setShowSkills(false)} className={`bg-skills h-full   rounded-full flex flex-col items-center justify-evenly text-center text-xl font-generalSansMd text-white`} whileHover={{ scale: 1.05 }}>
-      <div className={`${showSkills ? "hidden":"block"} p-1 m-1 cursor-default`}>
+<motion.div onMouseOver={() => setShowSkills(true)} onMouseLeave={() => setShowSkills(false)} className={`bg-skills p-2 h-full   rounded-full flex flex-col items-center justify-evenly text-center text-xl font-generalSansMd text-white`} whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+      <div className={`${showSkills ? "hidden":"block"} shadow-sm p-2 m-1 bg-white rounded-2xl text-[#FFC145] cursor-default`}>
         Soft Skills
       </div>
-      <div className={`${showSkills ? "block":"hidden"} p-1 m-1  space-y-1 cursor-default`}>
+      <div className={`${showSkills ? "block":"hidden"} shadow-sm p-2 m-1 bg-white rounded-2xl text-[#FFC145]  space-y-1 cursor-default`}>
       <p>Team player</p>
       <p>Autodidactic</p>
       <p>Adaptable</p>
@@ -120,7 +126,7 @@ export default function About() {
     <p className='educate-heading text-xl font-generalSansMd'>Things I like to do</p>
   </div>
 </div>
-<div className="div7 z-10 place-self-start">
+<div className="div7 z-10 gap-2 place-self-start">
   <div className='subdiv1'>
   <img src={codesticker} className='w-20 rounded-full'/>
   </div>
@@ -140,6 +146,7 @@ export default function About() {
     </div>
   </div>
   </div>
+    </div>
     </div>
   )
 }

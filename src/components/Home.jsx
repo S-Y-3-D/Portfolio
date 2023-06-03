@@ -19,13 +19,13 @@ export default function Home() {
         </h3>
         <div>
         </div>
-      <div className="flex items-center justify-center">
+      {/* <div className="flex items-center justify-center">
       <div className='rounded-full p-1 bg-[#3F32CA] border'>
       <input className='p-3 rounded-full'  placeholder='Type your email here' type='text'/>
       <button className='bg-[#3F32CA] text-white rounded-full p-3'>Get a quote</button>
       </div>
 
-      </div>
+      </div> */}
     </div>
     </div>
 
