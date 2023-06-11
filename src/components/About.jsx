@@ -275,7 +275,7 @@ export default function About() {
                     dark ? "text-gray-300" : "text-gray-500"
                   }  text-3xl`}
                 >
-                  Experience
+                  Experiences
                 </h2>
                 <div
                   onMouseEnter={ExperienceEnter}
