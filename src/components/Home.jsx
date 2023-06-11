@@ -3,7 +3,6 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { useSelector, useDispatch } from 'react-redux'
 import Scene from '../components/Spline/Scene'
 import DarkScene from '../components/Spline/DarkScene';
-import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 export default function Home() {
   
