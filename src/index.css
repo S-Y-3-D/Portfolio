@@ -3,30 +3,26 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "chillax-semibold";
-    src: url("./assets/fonts/OTF/Chillax-Semibold.otf");
+    font-family: "satoshi-Rg";
+    src: url("./assets/fonts/OTF/Satoshi-Regular.otf");
 }
 
 @font-face {
-    font-family: "chillax-md";
-    src: url("./assets/fonts/OTF/Chillax-Medium.otf");
+    font-family: "satoshi-Md";
+    src: url("./assets/fonts/OTF/Satoshi-Medium.otf");
 }
 
 @font-face {
-    font-family: "chillax-rg";
-    src: url("./assets/fonts/OTF/Chillax-Regular.otf");
+    font-family: "satoshi-Bold";
+    src: url("./assets/fonts/OTF/Satoshi-Bold.otf");
 }
 @font-face {
-    font-family: "chillax-li";
-    src: url("./assets/fonts/OTF/Chillax-Light.otf");
+    font-family: "outfit-Bold";
+    src: url("./assets/fonts/OTF/Outfit-Bold.otf");
 }
 @font-face {
-    font-family: "generalSans-Md";
-    src: url("./assets/fonts/OTF/GeneralSans-Medium.otf");
-}
-@font-face {
-    font-family: "generalSans-Rg";
-    src: url("./assets/fonts/OTF/GeneralSans-Light.otf");
+    font-family: "outfit-Md";
+    src: url("./assets/fonts/OTF/Outfit-Medium.otf");
 }
 
 .scene{

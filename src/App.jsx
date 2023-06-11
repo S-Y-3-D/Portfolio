@@ -25,17 +25,28 @@ function App() {
     }
   }, []);
 
+  document.body.style.backgroundColor = dark ? "black" : "white"
   return (
-    <div className={`${dark && "bg-black"} h-full`}>
-     <div className='content'>
-     <Navbar/>
-     <Home/>
-     <About/>
-      <Web/>
-      
-     </div>
-     <TechScene/>
+    <>
+    <div className='content'>
+
+    <Navbar/>
+    <Home/>
+    <About/>
     </div>
+    </>
+    // <>
+    // <div className={`${dark && "bg-black"} -z-20 h-full`}>
+    //  <div className='content'>
+    //  <Navbar/>
+    //  <Home/>
+    //  {/* <About/>
+    //   <Web/> */}
+      
+    //  </div>
+    //  {/* <TechScene/> */}
+    // </div>
+    // </>
     )
 }
 
