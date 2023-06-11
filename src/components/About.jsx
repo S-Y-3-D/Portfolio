@@ -4,8 +4,6 @@ import headshotWhite from "../assets/images/headshot-white.jpg";
 import faisal from "../assets/images/faisal-mosque.png";
 import { useSelector } from "react-redux";
 import signature from "../assets/images/signature.png";
-import computer from "../assets/images/computer.jpg";
-import headphones from "../assets/images/headphones.jpg";
 import briefcase from "../assets/3D/Briefcase.png";
 import certificate from "../assets/3D/Certificate.png";
 import { AiOutlineArrowRight } from "react-icons/ai";
@@ -15,7 +13,6 @@ import music from "../assets/3D/music.png";
 import coffee from "../assets/3D/coffee.png";
 import { spring, useVariants } from "./config";
 import { motion } from "framer-motion";
-import { Player, Controls } from "@lottiefiles/react-lottie-player";
 
 export default function About() {
   const dark = useSelector((state) => state.switch.value);
