@@ -18,11 +18,9 @@ export const useVariants = (ref) => {
 
   return {
     default: {
-      opacity: 0,
-      height: 10,
-      width: 10,
-      fontSize: "20px",
-      backgroundColor: "transparent",
+      opacity:0,
+      height: 20,
+      width: 20,
       x: mouseXPosition,
       y: mouseYPosition,
       transition: {
