@@ -9,7 +9,11 @@ export default {
       colors:{
 primary:{
 500:"#4F3DFF",
-800:"#FFFFE3"
+800:"#FFFFE3",
+"head-white": "#3C3C43",
+"head-black": "#DFDFD7",
+"para-black":"#9999A0",
+"para-white": "#6D6D72"
 },
 },
       fontFamily:{
@@ -18,6 +22,7 @@ primary:{
         satoshiB :["satoshi-Bold","sans"],
         outfitB :["outfit-Bold","sans"],
         outfitMd :["outfit-Md","sans"],
+        notoUrdu:["noto-urdu","sans"]
       },
     },
   },
