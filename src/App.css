@@ -3,6 +3,16 @@
   margin: 0 auto;
 padding: 2rem;}
 
+.education-content{
+  max-width: 1280px;
+  margin: 0 auto;
+padding: 2rem 5rem;
+}
+.experience-content{
+  max-width: 1280px;
+  margin: 0 auto;
+padding: 2rem 5rem;
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -81,12 +91,12 @@ padding: 2rem;}
   text-align: left;
 
 }
-ul{
+.features-list{
   transform: translate(0,-0.5em);
   animation: rolling 5s 1s ease-in-out forwards infinite alternate;
 }
 
-li{
+.features-list > li{
   list-style-type: none;
   height: 60px;
   font-size: 3em;
@@ -184,12 +194,12 @@ background-color: #00AE80; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 
 }
 
 .picture-outline:hover{
-  outline-width: 5px;
+  outline-width: 10px;
   outline-offset: 8px;
 }
 
 .picture-outline{
-  outline-width: 1px;
+  outline-width: 2px;
   outline-style: solid;
   outline-color: #4F3DFF;
   outline-offset: 4px;
@@ -227,17 +237,10 @@ background-color: #00AE80; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 
   justify-content: center;
   top: 0;
   left: 0;
-  background-color: black;
+  background-color:transparent;
   pointer-events: none;
   color: #fff;
   text-align: center;
-}
-
-.cursorText {
-  flex: auto;
-  font-size: inherit;
-  pointer-events: none;
-  margin: auto;
 }
 
 .container {
@@ -248,4 +251,205 @@ background-color: #00AE80; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 
   align-items: center;
   justify-content: space-around;
 }
+.transition-image{
+  top:0;
+  left:0
+}
 
+.education-card{
+  position: absolute;
+  width: 18vmin;
+  height: 18vmin;
+  border-radius: 100%;
+  transition: transform 1s cubic-bezier(0,1.03,.5,1.02);
+  z-index: -1;
+  background-color: rgba(0,0,0,0.2);
+}
+
+
+.university-images{
+  background-image: url("./assets/education/uni.jpg");
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 200px;
+
+}
+.small-card:nth-child(1){
+  transform: translate(-10%);
+  background-image: url("./assets/education/tayyab.jpg");
+  background-size: cover;
+}
+.small-card:nth-child(2){
+  transform: translate(220%);
+  background-image: url("./assets/education/omar.jpg");
+
+  background-size: cover;
+}
+.small-card:nth-child(3){
+  transform: translate(-10%,350%);
+  background-image: url("./assets/education/mujtaba.jpg");
+  background-size: cover;
+}
+.small-card:nth-child(4){
+  transform: translate(220%,350%);
+  background-image: url("./assets/education/hanzala.jpg");
+  background-size: cover;
+}
+.university-images:hover > .small-card:nth-child(1){
+  transform: translate(-40%,-20%);
+}
+.university-images:hover > .small-card:nth-child(2){
+  transform: translate(260%,-20%);
+}
+
+
+.university-images:hover > .small-card:nth-child(3){
+  transform: translate(-40%,380%)
+}
+.university-images:hover > .small-card:nth-child(4){
+  transform: translate(260%,380%);
+}
+
+.circle-1{
+  top: 0;
+  left: 0;
+  transform: translate(-50%,-50%);
+}
+.circle-2{
+  bottom: -10px;
+  left: 0;
+  transform: translate(-50%,-50%);
+}
+.active-circle{
+  outline: 2px solid #00AE80;
+  outline-offset: 2px;
+  animation: blink 3s linear infinite;
+}
+
+@keyframes blink {
+  0%, 25% {
+    opacity: 1;
+  }
+  25%,50% {
+    opacity: 0;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+  75%,100% {
+    opacity: 1;
+  }
+}
+.active-footer-link{
+  background-color: none;
+  transition: background-color 0.2s linear;
+  cursor: pointer;
+}
+.active-footer-link:hover{
+  background-color: #4F3DFF;
+}
+
+.text-appear::before{
+  content:"Love";
+  opacity:0;
+  transition: opacity;
+  animation: appear 20s linear 1s infinite;
+}
+
+@keyframes appear {
+
+  0%{
+    opacity: 0;
+  }
+
+  5%{
+    opacity: 0;
+  }
+  10%{
+    content:"Love";
+    opacity:1
+  }
+  15%{
+    
+    opacity: 0;
+  }
+  20%{
+    content:"pyaar";
+    opacity:1
+  }
+
+  25%{
+    
+    opacity:0
+  }
+  30%{
+    content:"❤️";
+    opacity:1
+  }
+  35%{
+   
+    opacity: 0;
+  }
+  40%{
+    content:"प्यार";
+    opacity:1
+  }
+  45%{
+    opacity: 0;
+    
+  }
+  50%{
+    content:"مینه";
+    opacity:1
+  }
+  60%{
+    
+    opacity: 0;
+  }
+
+  65%{
+    content:"cinta";
+    opacity:1
+  }
+  70%{
+    
+    opacity: 0;
+  }
+  75%{
+    content:"Liefde";
+    opacity:1
+  }
+  80%{
+    
+    opacity: 0;
+  }
+  85%{
+    content:"愛";
+    opacity:1
+  }
+
+  90%{
+    opacity:0
+    
+  }
+  95%{
+    content:"عشق";
+    opacity:1
+  }
+  100%{
+    opacity:0
+  }
+  
+}
+
+.line-lightup{
+  cursor: pointer;
+  text-decoration-line: none;
+  transition: text-decoration-line 2s;
+}
+.line-lightup:hover{
+  text-decoration-line: underline;
+}
