@@ -13,16 +13,23 @@ import music from "../assets/3D/music.png";
 import coffee from "../assets/3D/coffee.png";
 import { spring, useVariants } from "./config";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function About() {
   const dark = useSelector((state) => state.switch.value);
   const [showSkills, setShowSkills] = useState(false);
-  const [cursorImage, setCursorImage] = useState(1);
+  const [cursorImage, setCursorImage] = useState(0);
   const [cursorVariant, setCursorVariant] = useState("default");
   const ref = useRef(null);
   const hoverOnImage = cursorImage === 2 ? briefcase :  certificate
 
   const variants = useVariants(ref);
+
+  const pageTransition = {
+    hidden:{opacity:0},
+    animate:{opacity:1},
+    exit:{opacity:0}
+}
 
   function EducationEnter() {
     setCursorImage(1);
@@ -47,7 +54,7 @@ export default function About() {
   }
 
   function Headings({ name, isShowLink, reverse }) {
-    const text_color = dark ? "text-gray-300" : "text-gray-500";
+    const text_color = dark ?  "text-primary-head-black" : "text-primary-head-white"
     const direction = reverse ? "flex-row" : "flex-row";
     return (
       <div className={`flex ${direction} items-center justify-between mx-2`}>
@@ -62,21 +69,21 @@ export default function About() {
       <>
         <p
           className={`mt-2 ${
-            dark ? "text-white" : "text-black"
+            dark ? "text-primary-para-black" : "text-primary-para-white"
           } font-satoshiB text-lg mx-2`}
         >
           {position}
         </p>
         <p
           className={`${
-            dark ? "text-white" : "text-black"
+            dark ? "text-primary-para-black" : "text-primary-para-white"
           } font-satoshiRg text-lg mx-2`}
         >
           {company}
         </p>
         <p
           className={`${
-            dark ? "text-white" : "text-black"
+            dark ? "text-primary-para-black" : "text-primary-para-white"
           } font-satoshiMd text-xs mx-2`}
         >
           {date}
@@ -86,13 +93,15 @@ export default function About() {
   }
 
   return (
-    <div className="App">
+    <motion.div className="App" variants={pageTransition} initial="hidden" animate="animate" exit="exit">
       <div>
         <div className="container" ref={ref}>
           <motion.div
             variants={variants}
             className="circle"
+            initial="hidden"
             animate={cursorVariant}
+            exit="hidden"
             transition={spring}
           >
             <div className="hover-main w-32 h-32">
@@ -119,10 +128,6 @@ export default function About() {
                   </text>
                 </svg>
               </div>
-            {/* <div className="flex flex-col items-center">
-              <img src={eye}  className="w-36"/>
-            <span className="text-3xl font-satoshiRg ">{cursorText}</span>
-            </div> */}
           </motion.div>
 
           <div className="h-screen grid grid-rows-4 grid-cols-3">
@@ -130,7 +135,7 @@ export default function About() {
               <Headings name="Biography" />
               <p
                 className={`mt-2 ${
-                  dark ? "text-white" : "text-black"
+                  dark ?  "text-primary-para-black" : "text-primary-para-white" 
                 } font-satoshiRg mx-2 text-lg `}
               >
                 I'm Syed, a passionate and ambitious individual based in
@@ -166,7 +171,7 @@ export default function About() {
               <Headings name="Soft Skills" reverse={true} />
               <p
                 className={`mt-2 ${
-                  dark ? "text-white" : "text-black"
+                  dark ? "text-primary-para-black" : "text-primary-para-white" 
                 } font-satoshiB text-right text-3xl mx-2`}
               >
                 Team Player · Autodidactic · Adaptable · Creative
@@ -177,7 +182,7 @@ export default function About() {
               <Headings name="Services" />
               <p
                 className={`mt-2 ${
-                  dark ? "text-white" : "text-black"
+                  dark ? "text-primary-para-black" : "text-primary-para-white" 
                 } font-satoshiRg text-lg mx-2`}
               >
                 We excel in <strong>Web</strong>, <strong>AI</strong> and{" "}
@@ -190,7 +195,7 @@ export default function About() {
               <Headings name="Projects Done" reverse={true} />
               <div
                 className={`mt-2 ${
-                  dark ? "text-white" : "text-black"
+                  dark ? "text-primary-para-black" : "text-primary-para-white" 
                 } font-satoshiB text-right text-3xl mx-2`}
               >
                 <Counter value={25} />+ projects
@@ -202,24 +207,27 @@ export default function About() {
               >
                 <h2
                   className={`font-satoshiMd ${
-                    dark ? "text-gray-300" : "text-gray-500"
+                    dark ? "text-primary-head-black" : "text-primary-head-white"
                   }  text-3xl`}
                 >
                   Education
                 </h2>
+                <Link to="/education">
                 <div
                   onMouseEnter={EducationEnter}
                   onMouseLeave={Leave}
-                  className="w-14 h-14 border border-black flex flex-row items-center justify-center rounded-full bg-[#FFC633]"
+                  className="w-16 h-16 flex flex-row items-center justify-center rounded-full bg-[#FFC633]"
                 >
                   <AiOutlineArrowRight className="w-8 h-8 -rotate-45" />
                 </div>
+                </Link>
+                
               </div>
               <div className="flex flex-row items-center justify-between">
                 <div>
                   <p
                     className={`mt-2 ${
-                      dark ? "text-white" : "text-black"
+                      dark ? "text-primary-para-black" : "text-primary-para-white" 
                     } font-satoshiRg text-lg mx-2`}
                   >
                     Bachelor of Science, CS
@@ -229,7 +237,7 @@ export default function About() {
                   </p>
                   <p
                     className={`${
-                      dark ? "text-white" : "text-black"
+                      dark ? "text-primary-para-black" : "text-primary-para-white" 
                     } font-satoshiMd text-xs mx-2`}
                   >
                     09/2018 - 01/2023
@@ -238,14 +246,14 @@ export default function About() {
                 <div className="text-center border-l">
                   <p
                     className={`${
-                      dark ? "text-gray-300" : "text-gray-500"
+                      dark ? "text-primary-head-black" : "text-primary-head-white"
                     } font-satoshiRg text-lg mx-2`}
                   >
                     GPA
                   </p>
                   <p
                     className={`${
-                      dark ? "text-gray-300" : "text-gray-500"
+                      dark ? "text-primary-head-black" : "text-primary-head-white"
                     } font-satoshiRg text-lg mx-2`}
                   >
                     <strong className="text-primary-500">3.05 </strong>/ 4.0
@@ -257,7 +265,7 @@ export default function About() {
               <Headings name="Years of experience" reverse={true} />
               <div
                 className={`mt-2 ${
-                  dark ? "text-white" : "text-black"
+                  dark ? "text-primary-para-black" : "text-primary-para-white" 
                 } font-satoshiB text-right text-3xl mx-2`}
               >
                 <Counter value={1} />+ years
@@ -269,18 +277,20 @@ export default function About() {
               >
                 <h2
                   className={`font-satoshiMd ${
-                    dark ? "text-gray-300" : "text-gray-500"
+                    dark ? "text-primary-head-black" : "text-primary-head-white"
                   }  text-3xl`}
                 >
                   Experiences
                 </h2>
+                <Link to="/experience">
                 <div
                   onMouseEnter={ExperienceEnter}
                   onMouseLeave={Leave}
-                  className="w-14 h-14 border border-black flex flex-row items-center justify-center rounded-full bg-[#FFC633]"
+                  className="w-16 h-16 flex flex-row items-center justify-center rounded-full bg-[#FFC633]"
                 >
                   <AiOutlineArrowRight className="w-8 h-8 -rotate-45" />
                 </div>
+                </Link>
               </div>
               <ExperienceBrief
                 position={"Data Scientist"}
@@ -302,7 +312,7 @@ export default function About() {
               <Headings name="Location" reverse={true} />
               <p
                 className={`mt-2 ${
-                  dark ? "text-white" : "text-black"
+                  dark ? "text-primary-para-black" : "text-primary-para-white" 
                 } font-satoshiRg text-lg mx-2`}
               >
                 Born and raised in Pakistan.
@@ -335,6 +345,6 @@ export default function About() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
