@@ -24,7 +24,10 @@
     font-family: "outfit-Md";
     src: url("./assets/fonts/OTF/Outfit-Medium.otf");
 }
-
+@font-face {
+    font-family: "noto-urdu";
+    src: url("./assets/fonts/OTF/NotoNaskhArabic-Bold.ttf");
+}
 .scene{
     position: absolute;
 }
