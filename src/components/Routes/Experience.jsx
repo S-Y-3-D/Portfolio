@@ -1,5 +1,4 @@
 import { motion, AnimatePresence } from "framer-motion";
-import certificate from "../../assets/3D/certificate.png";
 import { useSelector } from "react-redux";
 import React from "react";
 
