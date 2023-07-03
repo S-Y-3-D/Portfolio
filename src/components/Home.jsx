@@ -17,7 +17,7 @@ export default function Home() {
         <div className='flex flex-row items-center justify-center mt-10'>
         <h2 className={`${dark ? "text-gray-300" : "text-gray-500" }  font-satoshiRg text-2xl `}>Embrace your upcoming project with&#160;</h2>
         <div className='active font-outfitMd'>
-          <ul>
+          <ul className="features-list">
             <li> Reliability</li>
             <li> Usability</li>
             <li> Quality</li>
