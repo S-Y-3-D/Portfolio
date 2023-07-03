@@ -2,14 +2,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { HiSparkles } from "react-icons/hi";
-import tensorflow from "../../assets/icons/TensorFlow.jpg";
-import react from "../../assets/icons/react.png";
-import azure from "../../assets/icons/azure.png";
-import deep from "../../assets/icons/deep.png";
-import git from "../../assets/icons/git.jpg";
-import sql from "../../assets/icons/postgreSQL.png";
-import pytorch from "../../assets/icons/pytorch.png";
-import three from "../../assets/icons/three.png";
+// import tensorflow from "../../assets/icons/TensorFlow.jpg";
+// import react from "../../assets/icons/react.png";
+// import azure from "../../assets/icons/azure.png";
+// import deep from "../../assets/icons/deep.png";
+// import git from "../../assets/icons/git.jpg";
+// import sql from "../../assets/icons/postgreSQL.png";
+// import pytorch from "../../assets/icons/pytorch.png";
+// import three from "../../assets/icons/three.png";
 import { useLocation } from "react-router-dom";
 
 export default function Education() {
