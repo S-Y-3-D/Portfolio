@@ -9,10 +9,8 @@ import { useSelector} from 'react-redux'
 import mailsort from '../../assets/images/mailsort.png'
 import soundpai from '../../assets/images/soundpai.png'
 import meetease from '../../assets/images/meetease.png'
-import q1 from '../../assets/images/q1.png'
 import quiz from '../../assets/images/quiz.mp4'
 import grace from '../../assets/images/grace.mp4'
-import { motion } from "framer-motion"
 
 function ScrollCarousel({ children,clicked }) {
   
@@ -103,7 +101,7 @@ export default function Web() {
   const [clicked, setClicked] = useState(false)
 
     return (
-      <div className="container">
+      <div className="container-web h-screen">
         <ScrollCarousel clicked={clicked}>
           <div onClick={()=>setClicked(prev => !prev)} className={`box bg-white ${!dark  ? "border rounded-2xl border-b-gray-300" : "border rounded-2xl border-b-black"}`}>
             <video autoPlay loop muted className='rounded-2xl'>
