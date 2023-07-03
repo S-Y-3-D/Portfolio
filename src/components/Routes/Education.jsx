@@ -1,5 +1,4 @@
 import { motion, AnimatePresence } from "framer-motion";
-import certificate from "../../assets/3D/certificate.png";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { HiSparkles } from "react-icons/hi";
