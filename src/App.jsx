@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import { useSelector } from "react-redux";
 import Web from "./components/Projects/Web";
-import TechScene from "./components/Spline/TechScene";
 import React, { useEffect } from "react";
 import About from "./components/About";
 import { Routes, Route, useLocation} from "react-router-dom";

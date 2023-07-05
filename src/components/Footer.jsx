@@ -28,10 +28,10 @@ export default function Footer() {
       else clearInterval(scrollInterval); 
    },15);
   }
-  function Circle({rotate,size,arrowSize}) {
+  function Circle({size,arrowSize}) {
     return (
       <div onClick={()=>scrollToTop(200)} className={`w-${size} h-${size} cursor-pointer flex flex-row items-center justify-center rounded-full bg-[#FFC633]`}>
-        <AiOutlineArrowRight size={arrowSize} className={`-rotate-${rotate}`} />
+        <AiOutlineArrowRight size={arrowSize} className={`-rotate-90`} />
       </div>
     );
   }
@@ -81,7 +81,7 @@ export default function Footer() {
           <Connect social={"Github"} rotate={45} size={8} arrowSize={16} link="https://github.com/S-Y-3-D" />
         </div>
         <div className="place-self-center">
-          <Circle rotate={90} size={32} arrowSize={60}/>
+          <Circle size={32} arrowSize={60}/>
           
         </div>
       </div>

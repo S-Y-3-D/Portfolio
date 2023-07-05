@@ -308,42 +308,42 @@ export default function Education() {
                 name="TensorFlow for Deep Learning"
                 source="Udacity"
                 skills="TensorFlow · CNNs · RNNs · Time Series"
-                image={tensorflow}
+                // image={tensorflow}
                 index={0}
               />
               <OnlineCourse
                 name="Advanced React"
                 source="Scrimba"
                 skills="React · Hooks · HOCs  · Redux"
-                image={react}
+                // image={react}
                 index={1}
               />
               <OnlineCourse
                 name="Deep Learning Specialization"
                 source="Coursera"
                 skills="Neural Networks · CNNs · Sequence Models"
-                image={deep}
+                // image={deep}
                 index={3}
               />
               <OnlineCourse
                 name="Machine Learning Specialization"
                 source="Coursera"
                 skills="Classification · Regression · Clusttering · Recommender Systems"
-                image={deep}
+                // image={deep}
                 index={4}
               />
               <OnlineCourse
                 name="Fundamentals of AI Azure"
                 source="Microsoft"
                 skills="Cloud Services · Azure · Azure ML Lab"
-                image={azure}
+                // image={azure}
                 index={2}
               />
               <OnlineCourse
                 name="Version control with Git"
                 source="Udacity"
                 skills="Push · Merge · Resolve conflicts "
-                image={git}
+                // image={git}
                 index={5}
               />
             </div>
