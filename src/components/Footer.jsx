@@ -2,6 +2,7 @@ import React from "react";
 import faisal from "../assets/images/faisal-mosque.png";
 import { useSelector } from "react-redux";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
 
@@ -10,7 +11,7 @@ export default function Footer() {
   }
 
   function Connect({social,rotate,size,arrowSize,link}){
-    return (<div  onClick={()=>openInNewTab(link)} className="flex cursor-pointer flex-row items-center justify-between w-1/2">
+    return (<div  onClick={()=>openInNewTab(link)} className="flex cursor-pointer flex-row items-center justify-between gap-5">
           <p className="font-satoshiMd text-lg text-primary-para-black">
             {social}
           </p>
@@ -37,8 +38,8 @@ export default function Footer() {
   }
   const dark = useSelector((state) => state.switch.value);
   return (
-    <div className="mt-36">
-      <div className="bg-[#000] grid grid-rows-1 grid-cols-5">
+    <div className="mt-36 deep-space">
+      <div className=" grid grid-rows-1 grid-cols-5 place-content-center place-items-center">
       <div className="m-5 bg-primary-500 p-4 rounded-lg">
         <h1 className="text-white text-4xl text-center font-outfitMd">
           Let’s create your dream
@@ -52,10 +53,10 @@ export default function Footer() {
             About
           </p>
           <p className="font-satoshiMd w-fit line-lightup text-lg text-primary-para-black">
-            Experience
+            <Link to="/experience">Experience</Link>
           </p>
           <p className="font-satoshiMd w-fit line-lightup text-lg text-primary-para-black">
-            Projects
+          <Link to="/education">Education</Link>
           </p>
           <p className="font-satoshiMd w-fit line-lightup text-lg text-primary-para-black">
             Blogs
@@ -85,8 +86,8 @@ export default function Footer() {
           
         </div>
       </div>
-      <div className="bg-[#000]">
-        <div className="mx-5 border-gray-700 border-t p-2 grid grid-rows-1 grid-cols-3">
+      <div>
+        <div className="mx-5 border-gray-400 border-t p-2 grid grid-rows-1 grid-cols-3">
           <div className={`font-outfitB text-2xl text-primary-500`}>Syed.</div>
           <div className="place-self-center">
             <h3 className={`font-notoUrdu text-sm text-white`}>
