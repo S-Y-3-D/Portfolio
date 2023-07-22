@@ -11,6 +11,7 @@ import { HiSparkles } from "react-icons/hi";
 // import pytorch from "../../assets/icons/pytorch.png";
 // import three from "../../assets/icons/three.png";
 import { useLocation } from "react-router-dom";
+import Card from './Card';
 
 export default function Education() {
   const { pathname } = useLocation();
@@ -146,7 +147,7 @@ export default function Education() {
               Offered by {source}
             </h1>
           </div>
-          <div classname="mr-3 w-20 ">
+          <div className="mr-3 w-20 ">
             <img className="object-contain w-20 rounded-full" src={image} />
           </div>
         </div>
@@ -228,10 +229,10 @@ export default function Education() {
               onMouseOver={() => setHovered(true)}
               onMouseOut={() => setHovered(false)}
             >
-              <div class="small-card education-card"></div>
-              <div class="small-card education-card"></div>
-              <div class="small-card education-card"></div>
-              <div class="small-card education-card"></div>
+              <div className="small-card education-card"></div>
+              <div className="small-card education-card"></div>
+              <div className="small-card education-card"></div>
+              <div className="small-card education-card"></div>
             </div>
             <div>
               <AnimatePresence>
@@ -264,28 +265,28 @@ export default function Education() {
               Featured Courses
             </h1>
           </div>
-          <div className="grid grid-rows-2 grid-cols-2 gap-4">
-            <RelevantCourse
+          <div className="grid grid-rows-2 grid-cols-2 gap-5">
+            <Card
               name="Object Oriented Programming"
               description="In Object-Oriented Programming (OOP), learned to model real-world concepts using objects, classes, and inheritance. Key principles include encapsulation, abstraction, polymorphism, and inheritance, enabling modular and extensible description design."
               time="Summer 2019"
               grade="A-"
             />
-            <RelevantCourse
+            <Card
               name="Software Design & Analysis"
               description="
               Software design and analysis involves gathering requirements, modeling systems, designing architectures, creating interfaces, and utilizing design patterns to develop efficient and maintainable software solutions."
               time="Fall 2020"
               grade="A"
             />
-            <RelevantCourse
+            <Card
               name="Natural language processing"
               description="
               NLP focuses on using computational methods to understand and process human language, including tasks like text classification, sentiment analysis, named entity recognition, machine translation, and language generation."
               time="Fall 2022"
               grade="A-"
             />
-            <RelevantCourse
+            <Card
               name="Game Theory"
               description="Game theory studies strategic decision-making in competitive situations, analyzing outcomes in games with multiple players, including actions, strategies, payoffs, cooperation, and optimal decision-making."
               time="Fall 2022"

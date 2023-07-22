@@ -11,6 +11,8 @@ import soundpai from '../../assets/images/soundpai.png'
 import meetease from '../../assets/images/meetease.png'
 import quiz from '../../assets/images/quiz.mp4'
 import grace from '../../assets/images/grace.mp4'
+import { motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 function ScrollCarousel({ children,clicked }) {
   
@@ -59,36 +61,13 @@ function ScrollCarousel({ children,clicked }) {
   return (
     <>
     
-    <div onMouseMove={onMouseMove} className="scroll-carousel" ref={refHeight} style={{backgroundColor:dark?"black":"white", height: elHeight }}>
+    <div onMouseMove={onMouseMove} className="scroll-carousel" ref={refHeight} style={{backgroundColor:dark? "#1E1E20" : "white", height: elHeight }}>
     
       <div className="sticky-box">
-      <h1 className={`font-chillaxSemi absolute ${dark && "text-primary-800"} project-heading`}>Projects</h1>
+      <h1 className={`font-outfitMd absolute ${dark ? "text-primary-head-black" : "text-primary-head-white"} project-heading`}>Projects</h1>
         <a.div style={{ transform: interpTransform }} className="transform-box" ref={refTransform}>
           {children}
         </a.div>
-        <div className={`${clicked ? "block":"hidden"} animated animatedFadeInUp fadeInUp `} >
-        <div className={`w-2/6 flex flex-row items-center py-2 justify-around rounded-xl toolbar shadow-lg ${dark ? "bg-primary-800 shadow-black/50 " : "bg-black shadow-gray-300"} `}>
-            <div className='flex flex-col items-center'>
-              <FiExternalLink className='cursor-pointer' size={18} color= {`${dark ?"black":"white"}`}/>
-              <p className={`font-chillaxRg text-xs mt-1 ${!dark && "text-white"}`}>Check out</p>
-             
-            </div>
-            <div className='flex flex-col items-center'>
-              <FaGlasses className='cursor-pointer' size={18} color= {`${dark ?"black":"white"}`}/>
-              <p className={`font-chillaxRg text-xs mt-1 ${!dark && "text-white"}`}>Nerd view</p>
-              
-            </div>
-            <div className='flex flex-col items-center'>
-            <BsGithub className='cursor-pointer' size={18}  color= {`${dark ?"black":"white"}`}/>
-            <p className={`font-chillaxRg text-xs mt-1 ${!dark && "text-white"}`}>Go to repository</p>
-            
-            </div>
-          </div>
-        </div>
-        <div className='invisible'>
-          shadow
-        </div>
-
 </div>
     </div></>
   )
@@ -98,28 +77,293 @@ export default function Web() {
   
 
   const dark = useSelector((state) => state.switch.value)
-  const [clicked, setClicked] = useState(false)
+  const [hoverArray, setHoverArray] = useState([false,false,false,false,false])
 
     return (
-      <div className="container-web h-screen">
-        <ScrollCarousel clicked={clicked}>
-          <div onClick={()=>setClicked(prev => !prev)} className={`box bg-white ${!dark  ? "border rounded-2xl border-b-gray-300" : "border rounded-2xl border-b-black"}`}>
+      <div className="mt-36 container-web">
+        <ScrollCarousel >
+          <div onMouseOver={(prev) => setHoverArray( prev => (prev.map((val,index) => (index == 0 ? true : false)))) } onMouseLeave={()=>setHoverArray([false,false,false,false,false])} className={`relative box bg-white ${!dark  ? "border rounded-2xl border-b-gray-300" : "border rounded-2xl border-b-black"}`}>
+          <AnimatePresence>
+          {hoverArray[0] && 
+          <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+            className="absolute z-10 bottom-0 w-full h-1/6 projects-grid"> 
+            <motion.div
+             transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              
+              whileHover={{scale:1.05}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-black" : "bg-black border-primary-head-white"} hover:bg-primary-500 flex flex-col rounded-l-2xl items-center justify-center`}> 
+              <FiExternalLink  size={40} color= {`${dark ? "black" : "white"}`}/>
+              <p className={`font-satoshiMd text-xl mt-2 text-center ${dark ? "text-black" : "text-white"}`}>Check out</p>
+            </motion.div>
+            <motion.div
+            transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              
+              whileHover={{scale:1.001}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-white" : "bg-black border-primary-head-black"} hover:bg-primary-500  border-l-2  flex flex-col  items-center justify-center`}>
+              <FaGlasses  size={40} color={`${dark ? "black":"white"}`}/>
+              <p className={`font-satoshiMd text-xl mt-2 ${dark ? "text-black" : "text-white"}`}>Nerd view</p>
+              
+            </motion.div>
+            <motion.div
+            transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              whileHover={{scale:1.05}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-white" : "bg-black border-primary-head-black"} hover:bg-primary-500   border-l-2 flex flex-col rounded-r-2xl items-center justify-center`}>
+            <BsGithub size={40}  color= {`${dark ? "black" : "white" }`}/>
+            <p className={`font-satoshiMd text-xl mt-2 text-center ${dark ? "text-black" : "text-white"}`}>Go to repo</p>
+            
+            </motion.div>
+          </motion.div>
+          }
+          </AnimatePresence>
             <video autoPlay loop muted className='rounded-2xl'>
             <source src={grace} type="video/mp4"/>
             </video>
           </div>
-          <div onClick={()=>setClicked(prev => !prev)} className={`box ${!dark && "border rounded-2xl border-gray-300"}`}>
+          <div onMouseOver={(prev) => setHoverArray( prev => (prev.map((val,index) => (index == 1 ? true : false)))) } onMouseLeave={()=>setHoverArray([false,false,false,false,false])} className={`relative box bg-white ${!dark  ? "border rounded-2xl border-b-gray-300" : "border rounded-2xl border-b-black"}`}>
+          <AnimatePresence>
+          {hoverArray[1] && 
+          <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+            className="absolute z-10 bottom-0 w-full h-1/6 projects-grid"> 
+            <motion.div
+             transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              
+              whileHover={{scale:1.05}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-black" : "bg-black border-primary-head-white"} hover:bg-primary-500 flex flex-col rounded-l-2xl items-center justify-center`}> 
+              <FiExternalLink  size={40} color= {`${dark ? "black" : "white"}`}/>
+              <p className={`font-satoshiMd text-xl mt-2 text-center ${dark ? "text-black" : "text-white"}`}>Check out</p>
+            </motion.div>
+            <motion.div
+            transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              
+              whileHover={{scale:1.001}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-white" : "bg-black border-primary-head-black"} hover:bg-primary-500  border-l-2  flex flex-col  items-center justify-center`}>
+              <FaGlasses  size={40} color={`${dark ? "black":"white"}`}/>
+              <p className={`font-satoshiMd text-xl mt-2 ${dark ? "text-black" : "text-white"}`}>Nerd view</p>
+              
+            </motion.div>
+            <motion.div
+            transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              whileHover={{scale:1.05}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-white" : "bg-black border-primary-head-black"} hover:bg-primary-500   border-l-2 flex flex-col rounded-r-2xl items-center justify-center`}>
+            <BsGithub size={40}  color= {`${dark ? "black" : "white" }`}/>
+            <p className={`font-satoshiMd text-xl mt-2 text-center ${dark ? "text-black" : "text-white"}`}>Go to repo</p>
+            
+            </motion.div>
+          </motion.div>
+          }
+          </AnimatePresence>
             <img src={meetease} alt="Meetease" className="img" />
           </div>
-          <div onClick={()=>setClicked(prev => !prev)} className={`box bg-white ${!dark  ? "border rounded-2xl border-b-gray-300" : "border rounded-2xl border-b-black"}`}>
+          <div onMouseOver={(prev) => setHoverArray( prev => (prev.map((val,index) => (index == 2 ? true : false)))) } onMouseLeave={()=>setHoverArray([false,false,false,false,false])} className={`relative box bg-white ${!dark  ? "border rounded-2xl border-b-gray-300" : "border rounded-2xl border-b-black"}`}>
+          <AnimatePresence>
+          {hoverArray[2] && 
+          <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+            className="absolute z-10 bottom-0 w-full h-1/6 projects-grid"> 
+            <motion.div
+             transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              
+              whileHover={{scale:1.05}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-black" : "bg-black border-primary-head-white"} hover:bg-primary-500 flex flex-col rounded-l-2xl items-center justify-center`}> 
+              <FiExternalLink  size={40} color= {`${dark ? "black" : "white"}`}/>
+              <p className={`font-satoshiMd text-xl mt-2 text-center ${dark ? "text-black" : "text-white"}`}>Check out</p>
+            </motion.div>
+            <motion.div
+            transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              
+              whileHover={{scale:1.001}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-white" : "bg-black border-primary-head-black"} hover:bg-primary-500  border-l-2  flex flex-col  items-center justify-center`}>
+              <FaGlasses  size={40} color={`${dark ? "black":"white"}`}/>
+              <p className={`font-satoshiMd text-xl mt-2 ${dark ? "text-black" : "text-white"}`}>Nerd view</p>
+              
+            </motion.div>
+            <motion.div
+            transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              whileHover={{scale:1.05}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-white" : "bg-black border-primary-head-black"} hover:bg-primary-500   border-l-2 flex flex-col rounded-r-2xl items-center justify-center`}>
+            <BsGithub size={40}  color= {`${dark ? "black" : "white" }`}/>
+            <p className={`font-satoshiMd text-xl mt-2 text-center ${dark ? "text-black" : "text-white"}`}>Go to repo</p>
+            
+            </motion.div>
+          </motion.div>
+          }
+          </AnimatePresence>
           <video autoPlay loop muted className='rounded-2xl'>
             <source src={quiz} type="video/mp4"/>
             </video>
           </div>
-          <div onClick={()=>setClicked(prev => !prev)} className={`box ${!dark && "border rounded-2xl border-gray-300"}`}>
+          <div onMouseOver={(prev) => setHoverArray( prev => (prev.map((val,index) => (index == 3 ? true : false)))) } onMouseLeave={()=>setHoverArray([false,false,false,false,false])} className={`relative box bg-white ${!dark  ? "border rounded-2xl border-b-gray-300" : "border rounded-2xl border-b-black"}`}>
+          <AnimatePresence>
+          {hoverArray[3] && 
+          <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+            className="absolute z-10 bottom-0 w-full h-1/6 projects-grid"> 
+            <motion.div
+             transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              
+              whileHover={{scale:1.05}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-black" : "bg-black border-primary-head-white"} hover:bg-primary-500 flex flex-col rounded-l-2xl items-center justify-center`}> 
+              <FiExternalLink  size={40} color= {`${dark ? "black" : "white"}`}/>
+              <p className={`font-satoshiMd text-xl mt-2 text-center ${dark ? "text-black" : "text-white"}`}>Check out</p>
+            </motion.div>
+            <motion.div
+            transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              
+              whileHover={{scale:1.001}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-white" : "bg-black border-primary-head-black"} hover:bg-primary-500  border-l-2  flex flex-col  items-center justify-center`}>
+              <FaGlasses  size={40} color={`${dark ? "black":"white"}`}/>
+              <p className={`font-satoshiMd text-xl mt-2 ${dark ? "text-black" : "text-white"}`}>Nerd view</p>
+              
+            </motion.div>
+            <motion.div
+            transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              whileHover={{scale:1.05}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-white" : "bg-black border-primary-head-black"} hover:bg-primary-500   border-l-2 flex flex-col rounded-r-2xl items-center justify-center`}>
+            <BsGithub size={40}  color= {`${dark ? "black" : "white" }`}/>
+            <p className={`font-satoshiMd text-xl mt-2 text-center ${dark ? "text-black" : "text-white"}`}>Go to repo</p>
+            
+            </motion.div>
+          </motion.div>
+          }
+          </AnimatePresence>
             <img src={mailsort} alt="Mailsort" className="img" />
           </div>
-          <div onClick={()=>setClicked(prev => !prev)} className={`box ${!dark && "border rounded-2xl border-gray-300"}`}>
+          <div onMouseOver={(prev) => setHoverArray( prev => (prev.map((val,index) => (index == 4 ? true : false)))) } onMouseLeave={()=>setHoverArray([false,false,false,false,false])} className={`relative box bg-white ${!dark  ? "border rounded-2xl border-b-gray-300" : "border rounded-2xl border-b-black"}`}>
+          <AnimatePresence>
+          {hoverArray[4] && 
+          <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+            className="absolute z-10 bottom-0 w-full h-1/6 projects-grid"> 
+            <motion.div
+             transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              
+              whileHover={{scale:1.05}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-black" : "bg-black border-primary-head-white"} hover:bg-primary-500 flex flex-col rounded-l-2xl items-center justify-center`}> 
+              <FiExternalLink  size={40} color= {`${dark ? "black" : "white"}`}/>
+              <p className={`font-satoshiMd text-xl mt-2 text-center ${dark ? "text-black" : "text-white"}`}>Check out</p>
+            </motion.div>
+            <motion.div
+            transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              
+              whileHover={{scale:1.001}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-white" : "bg-black border-primary-head-black"} hover:bg-primary-500  border-l-2  flex flex-col  items-center justify-center`}>
+              <FaGlasses  size={40} color={`${dark ? "black":"white"}`}/>
+              <p className={`font-satoshiMd text-xl mt-2 ${dark ? "text-black" : "text-white"}`}>Nerd view</p>
+              
+            </motion.div>
+            <motion.div
+            transition={
+              {type: "spring",
+              damping: 10,
+              stiffness: 500}}
+              initial={{ translateY: 10 }}
+              animate={{ translateY: 0 }}
+              exit={{ translateY: 10 }}
+              whileHover={{scale:1.05}}
+            className={`cursor-pointer ${dark ? "bg-white border-primary-head-white" : "bg-black border-primary-head-black"} hover:bg-primary-500   border-l-2 flex flex-col rounded-r-2xl items-center justify-center`}>
+            <BsGithub size={40}  color= {`${dark ? "black" : "white" }`}/>
+            <p className={`font-satoshiMd text-xl mt-2 text-center ${dark ? "text-black" : "text-white"}`}>Go to repo</p>
+            
+            </motion.div>
+          </motion.div>
+          }
+          </AnimatePresence>
             <img src={soundpai} alt="SoundPai" className="img" />
           </div>
           

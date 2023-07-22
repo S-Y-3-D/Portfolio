@@ -1,8 +1,15 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
-import React from "react";
+import React,{useEffect} from "react";
+import { useLocation } from 'react-router-dom';
 
 export default function Experience() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   const Points = ({ desc, points, start, end, current }) => (
     <section>
       <p

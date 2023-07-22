@@ -10,6 +10,7 @@ import Education from "./components/Routes/Education";
 import { AnimatePresence } from "framer-motion";
 import Experience from './components/Routes/Experience';
 import Footer from './components/Footer';
+import Card from './components/Routes/Card';
 function App() {
   const dark = useSelector((state) => state.switch.value);
   const location = useLocation()
@@ -34,7 +35,7 @@ function App() {
     <><div className="content">
       <Home />
       <About />
-      {/* <Web /> */}
+      <Web />
     </div>
 </>
   )

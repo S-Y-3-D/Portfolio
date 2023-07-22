@@ -83,7 +83,7 @@ export default function Footer() {
         </div>
         <div className="place-self-center">
           <Circle size={32} arrowSize={60}/>
-          
+          <p className="text-xl text-center mt-2 text-white font-satoshiMd">Back to top</p>
         </div>
       </div>
       <div>
